@@ -10,15 +10,18 @@ with open('key.key', 'rb') as keyfile:
 
 server = socket.socket()
 
-HOST = socket.gethostname()
-PORT = 8080
+HOST = '127.0.0.1'
+PORT = input('What port would you like to open the server on? ')
+PORT = int(PORT)
 
 ADDR = (HOST, PORT)
 
 server.bind(ADDR)
 
+print(f'Name: {HOST}')
+print(f'PORT: {PORT}')
+
 server.listen(1)
-print('Server is listening for incoming connections..')
 
 CONN, ADDR = server.accept()
 
